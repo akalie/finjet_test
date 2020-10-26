@@ -7,7 +7,7 @@
 
 поднимется сервер на http://localhost:8080/
 
-запустить тесты - в контейнере app ```vendor/bin/phpuint```
+запустить тесты - в контейнере app ```vendor/bin/phpunit```
 
 # Endpoints
 См. [routes](config/routes.php)

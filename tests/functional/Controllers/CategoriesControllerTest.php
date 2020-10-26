@@ -23,11 +23,18 @@ class CategoriesControllerTest extends TestCase
         $categories = $this->get('/categories', $params)->result;
         $this->assertContains($testName, array_column($categories, 'name'));
 
+        $newTestName = $testName . 'BBB';
+        $r = $this->post('/categories/update', $params + ['id' => $testCategoryId, 'name' => $newTestName]);
+        $this->assertTrue($r->result->success);
+
+        $categories = $this->get('/categories', $params)->result;
+        $this->assertContains($newTestName, array_column($categories, 'name'));
+
         $r = $this->post('/categories/delete', $params + ['id' => $testCategoryId]);
         $this->assertTrue($r->result->success);
 
         $categories = $this->get('/categories', $params)->result;
-        $this->assertNotContains($testName, array_column($categories, 'name'));
+        $this->assertNotContains($newTestName, array_column($categories, 'name'));
     }
 
     public function testcategoriesAPIDoesNotWorkWithWrongToken()
