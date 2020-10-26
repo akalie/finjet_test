@@ -12,6 +12,7 @@ $connectionConfig = require '../config/connection.php';
 $container = require '../config/container.php';
 $strategy = (new League\Route\Strategy\ApplicationStrategy)->setContainer($container);
 $router   = $router->setStrategy($strategy);
+
 /** @var LoggerInterface $logger */
 $logger = $container->get(LoggerInterface::class);
 try {

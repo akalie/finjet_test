@@ -41,7 +41,7 @@ abstract class ApiController
     public function delete(ServerRequest $request): JsonResponse
     {
         $id = $request->getParsedBody()['id'] ?? null;
-        $id = (int) $id;
+        $id = (int)$id;
         if (!$id) {
             return new ErrorJsonResponse(['No id provided.']);
         }

@@ -14,7 +14,7 @@ class UsersRepository extends AbstractEloquentRepository implements UsersReposit
     public function getByLoginAndHash(string $login, string $passHash): ?User
     {
         return User::where([
-            'login'     => $login,
+            'login' => $login,
             'pass_hash' => $passHash,
         ])->first();
     }
@@ -22,8 +22,8 @@ class UsersRepository extends AbstractEloquentRepository implements UsersReposit
     public function getByToken(string $token): ?User
     {
         return User::where([
-           ['token', '=', $token],
-           ['token_expires_at', '>', date('Y-m-d H:i:s')],
+            ['token', '=', $token],
+            ['token_expires_at', '>', date('Y-m-d H:i:s')],
         ])->first();
     }
 }

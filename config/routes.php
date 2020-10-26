@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-/** @var $router League\Route\Router */
-
 use Finjet\Middlewares\AuthMiddleware;
 use Laminas\Diactoros\Response\JsonResponse;
 

@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 
 namespace Finjet\Middlewares;
@@ -37,8 +37,7 @@ class AuthMiddleware implements MiddlewareInterface
 
         $request = $request
             ->withParsedBody(array_diff_key($request->getParsedBody(), ['token' => 1]))
-            ->withQueryParams(array_diff_key($request->getQueryParams(), ['token' => 1]))
-        ;
+            ->withQueryParams(array_diff_key($request->getQueryParams(), ['token' => 1]));
 
         return $handler->handle($request);
     }
